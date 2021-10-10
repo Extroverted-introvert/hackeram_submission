@@ -14,8 +14,8 @@ def send_twilio_message(username, country_code, target_number, location):
         data_dump = '\n'.join(tweets[:5])
     else:
         data_dump = '\n'.join(tweets)    
-    account_sid = 'ACd2dda6bfec745c73e72e52824b5f5a19'
-    auth_token = 'f2168e448c720ac07e8bff3ed2360cbc'
+    account_sid = os.environ.get('account_sid')
+    auth_token = os.environ.get('auth_token')
     client = Client(account_sid, auth_token)
 
     message = client.messages \

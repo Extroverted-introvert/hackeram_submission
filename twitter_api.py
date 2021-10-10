@@ -1,10 +1,11 @@
+import os
 import tweepy
 
 
 def get_tweet_sentiment(city):
         
-    auth = tweepy.OAuthHandler("sWHOzqDwM3UbT7XqQcKvR2wku", "t2OYKAbry0knI1VSaWLtOTsE18dqiE0yQdc6kwIFg5wj9TRJ8U")
-    auth.set_access_token("810538727944704000-r5YCr88V4A86dUbJx0fl9I02sPRee86", "cWWmdGCuVrPjNQb3hI5dwijmb4Z7l3Us4yjGv8CsGJHx3")
+    auth = tweepy.OAuthHandler(os.environ.get('auth_token_1'), os.environ.get('auth_token_2'))
+    auth.set_access_token(os.environ.get('auth_token_3'), os.environ.get('auth_token_4'))
     tweet_list = list()
     api = tweepy.API(auth)
     try:
